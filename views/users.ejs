@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+      .home-user{
+           border:2px solid black;
+           width:250px;
+           margin-left: 30%;
+           background: rgb(221, 218, 218);
+           margin-bottom:20px;
+      }
+
+      .home-user h3{
+          margin-left: 15px;
+      }
+      .home-user button{
+          margin-left:100px;
+          margin-bottom: 5px;
+      }
+      span{
+          color:blue;
+      }
+      h1{
+          text-align: center;
+      }
+      div{
+            margin-top:0px;
+            width:100%;
+            background-color:rgb(109, 99, 99);
+            height:40px;
+        }
+        nav a{
+            margin:25px;
+            font-size: x-large;
+            text-decoration: none;
+            color:black;
+
+        }
+        a:hover{
+            color:white
+        }
+        nav{
+            padding:5px;
+        }
+</style>
+<body>
+    <div>
+    <nav>
+        <a href="/">Users</a> 
+        <a href="/add-user">Add User</a> 
+        
+      </nav>
+    <h1>Users</h1>
+    </div>
+   
+    <% for(let usr of usrs) { %>
+    <form action="/userdelete/<%= usr.id%>" method="POST" class="home-user">
+        <h3>Name : <span><%= usr.name %></span></h3>
+        <h3>Company : <span><%= usr.company %></span></h3>
+        <h3>State : <span><%= usr.state %><span></h3>
+            
+            <button type="submit" value="<%= usr.id%>">Delete</button>
+           
+        </form>
+        <!-- <form action="/update" >
+           
+            <button type="submit" value="<%= usr.id%>">Edit</button>
+        </form> -->
+      
+        
+    <% } %>
+
+   
+</body>
+</html>
